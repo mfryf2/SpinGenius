@@ -1,0 +1,80 @@
+# SpinGenius 配置文件
+
+# 本地模型配置
+local:
+  model: qwen2.5:14b  # ✅ 已安装14b模型（最佳效果，适合24G内存）
+  base_url: http://localhost:11434
+  temperature: 0.7
+  max_tokens: 4000
+
+# API配置
+api:
+  provider: openai  # 可选: openai, claude, qwen, ernie
+  
+  # OpenAI配置
+  openai:
+    api_key: ${OPENAI_API_KEY}  # 从环境变量读取
+    model: gpt-4o
+    base_url: https://api.openai.com/v1
+    
+  # Claude配置
+  claude:
+    api_key: ${CLAUDE_API_KEY}
+    model: claude-3-5-sonnet-20241022
+    
+  # 通义千问配置
+  qwen:
+    api_key: ${QWEN_API_KEY}
+    model: qwen-plus
+    base_url: https://dashscope.aliyuncs.com/api/v1
+    
+  # 文心一言配置
+  ernie:
+    api_key: ${ERNIE_API_KEY}
+    secret_key: ${ERNIE_SECRET_KEY}
+
+# 改写参数
+rewrite:
+  temperature: 0.7
+  max_retries: 3
+  similarity_threshold: 0.3  # 相似度阈值（越低越不相似）
+  
+# 专业术语保护（不改写的词汇）
+protected_terms:
+  tech:
+    - React
+    - Vue
+    - Python
+    - JavaScript
+    - TypeScript
+    - API
+    - REST
+    - GraphQL
+    - Docker
+    - Kubernetes
+    - Git
+    - GitHub
+    - npm
+    - webpack
+    - Node.js
+    
+  insurance:
+    - 重疾险
+    - 医疗险
+    - 意外险
+    - 年金险
+    - 寿险
+    - 保额
+    - 保费
+    - 免赔额
+    - 等待期
+    - 犹豫期
+    - 现金价值
+    - IRR
+
+# 输出配置
+output:
+  format: html
+  encoding: utf-8
+  preserve_structure: true  # 保留HTML结构
+  preserve_code_blocks: true  # 保留代码块

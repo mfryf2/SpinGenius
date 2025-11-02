@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>React Hooks 完全指南</title>
+</head>
+<body>
+    <h1>React Hooks 完全指南</h1>
+    
+    <p>React Hooks 是 React 16.8 引入的新特性，它允许你在不编写 class 的情况下使用 state 以及其他的 React 特性。这个特性彻底改变了我们编写 React 组件的方式。</p>
+    
+    <h2>为什么需要 Hooks？</h2>
+    
+    <p>在 Hooks 出现之前，如果我们想在组件中使用状态管理或生命周期方法，就必须使用 class 组件。但是 class 组件存在一些问题：组件之间复用状态逻辑很难，复杂组件变得难以理解，class 本身也让人困惑。</p>
+    
+    <h2>useState Hook</h2>
+    
+    <p>useState 是最基础的 Hook，它让函数组件也能拥有自己的状态。下面是一个简单的计数器例子：</p>
+    
+    <pre><code>import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    
+    <h2>useEffect Hook</h2>
+    
+    <p>useEffect 用于处理副作用，比如数据获取、订阅或者手动修改 DOM。它相当于 componentDidMount、componentDidUpdate 和 componentWillUnmount 这三个生命周期函数的组合。</p>
+    
+    <pre><code>useEffect(() =&gt; {
+  document.title = `You clicked ${count} times`;
+}, [count]);</code></pre>
+    
+    <h2>自定义 Hooks</h2>
+    
+    <p>自定义 Hook 是一个函数，其名称以 "use" 开头，函数内部可以调用其他的 Hook。通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。</p>
+    
+    <h2>总结</h2>
+    
+    <p>React Hooks 提供了一种更直接的 API 来使用 React 的特性，让代码更加简洁和易于理解。掌握 Hooks 是现代 React 开发的必备技能。</p>
+</body>
+</html>

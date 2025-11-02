@@ -1,0 +1,26 @@
+# Core dependencies
+click>=8.1.0
+pyyaml>=6.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+requests>=2.31.0
+
+# Local model support
+ollama>=0.1.0
+
+# API support
+openai>=1.0.0
+anthropic>=0.18.0
+
+# Similarity detection
+sentence-transformers>=2.2.0
+scikit-learn>=1.3.0
+
+# HTML processing
+html5lib>=1.1
+markdownify>=0.11.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+colorama>=0.4.6
