@@ -94,6 +94,13 @@ class LocalRewriter(BaseRewriter):
                 if not rewritten_content:
                     raise RuntimeError("模型返回空内容")
                 
+                # 处理 deepseek-r1 模型的思考过程标签
+                if 'deepseek-r1' in self.model.lower():
+                    # 移除 <think>...</think> 标签及其内容
+                    import re
+                    rewritten_content = re.sub(r'<think>.*?</think>', '', rewritten_content, flags=re.DOTALL)
+                    rewritten_content = rewritten_content.strip()
+                
                 print(f"{Fore.GREEN}✓ 改写完成{Style.RESET_ALL}")
                 return rewritten_content
             else:
